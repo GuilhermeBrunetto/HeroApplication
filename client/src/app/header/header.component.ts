@@ -11,7 +11,6 @@ import { SignupComponent } from '../auth/signup/signup.component';
 export class HeaderComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
   title = 'client';
 

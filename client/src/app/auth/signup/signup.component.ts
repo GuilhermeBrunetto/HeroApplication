@@ -15,7 +15,10 @@ export class SignupComponent implements OnInit {
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
+    powers : new FormControl(''),
+    universe : new FormControl(''),
     repeatPassword : new FormControl(''),
+    initial_date : new FormControl(''),
 
   });
 
