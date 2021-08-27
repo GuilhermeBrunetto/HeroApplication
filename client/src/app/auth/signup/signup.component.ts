@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
+  form: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+    repeatPassword : new FormControl(''),
+
+  });
+
+  submit() {
+    if (this.form.valid) {
+      this.submitEM.emit(this.form.value);
+    }
+  }
+  @Input() error: string | null | undefined;
+
+  @Output() submitEM = new EventEmitter();
 }
