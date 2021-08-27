@@ -10,7 +10,7 @@ namespace API.Data
         {
         }
 
-        // DbSet dos Heroes 
+        // Heroes' DbSet  
         public DbSet<Hero> Heroes { get; set; }
     }
 }
