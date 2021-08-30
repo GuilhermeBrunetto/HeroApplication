@@ -14,8 +14,10 @@ namespace API.Controllers
     {
         private readonly DataContext __context;
         private readonly ITokenService _tokenService;
-        public AccountController(DataContext _context, ITokenService tokenService)
+        private readonly IPowerService _powerService;
+        public AccountController(DataContext _context, ITokenService tokenService, IPowerService powerService)
         {
+            _powerService = powerService;
             _tokenService = tokenService;
             __context = _context;
         }
@@ -65,8 +67,16 @@ namespace API.Controllers
             {
                 Heroname = hero.HeroName,
                 Token = _tokenService.CreateToken(hero)
-            };    
+            };
         }
+
+/*        [HttpPost("add-power")]
+        public async Task<ActionResult<PowerDto>> AddPower(PowerDto powerDto)
+        {
+            _powerService.AddPowerAsync(powerDto.Id, powerDto.PowerName);
+
+
+        }*/
 
         private async Task<bool> HeroExists(string heroname)
         {
